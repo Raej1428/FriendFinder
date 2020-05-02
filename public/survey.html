@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Reservation Page</title>
+    <title>Survey Page</title>
 
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -24,23 +24,26 @@
             <h2 class="text-center">Fill out the Survey. Find a new friend.</h2>
             <br>
             <div class="text-center">
-                <!-- <a href="/tables">
+                <!-- <a href="/friends">
           <button class="btn btn-lg btn-primary">
-            <span class="fa fa-list-alt"></span> View Tables</button>
+            <span class="fa fa-list-alt"></span> View friends</button>
         </a> -->
                 <a href="/">
                     <button class="btn btn-lg btn-default">
-            <span class="fa fa-home"></span>
-          </button>
+                        <span class="fa fa-home"></span>
+                    </button>
                 </a>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <!-- Reservation Page -->
+                <!-- Survey Page -->
                 <div class="card">
                     <div class="card-header">
-                        Table Reservation
+                        Friend Survey
+                        <p> Fill out your name and add a link to your photo. The survey questions will appear with one
+                            word, rate how you feel about that word on a scale of 1(I hate it) to 5(I love it). You will
+                            be matched based on this data so be honest!</p>
                     </div>
                     <div class="card-body">
                         <form role="form">
@@ -49,15 +52,48 @@
                                 <input type="text" class="form-control" id="survey-name">
                             </div>
                             <div class="form-group">
-                                <label for="survey-phone">Phone Number</label>
-                                <input type="text" class="form-control" id="survey-phone">
+                                <label for="survey-photo">photo Number</label>
+                                <input type="text" class="form-control" id="survey-photo">
                             </div>
+
                             <div class="form-group">
-                                <label for="survey-email">Email</label>
+                                <label for="survey-lasagna">Lasagna</label>
                                 <input type="text" class="form-control" id="survey-email">
                             </div>
                             <div class="form-group">
-                                <label for="survey-unique-id">Unique ID</label>
+                                <label for="survey-bologna">Bologna</label>
+                                <input type="text" class="form-control" id="survey-unique-id">
+                            </div>
+                            <div class="form-group">
+                                <label for="survey-bluecheese">Blue Cheese</label>
+                                <input type="text" class="form-control" id="survey-unique-id">
+                            </div>
+                            <div class="form-group">
+                                <label for="survey-recycling">Recycling</label>
+                                <input type="text" class="form-control" id="survey-unique-id">
+                            </div>
+                            <div class="form-group">
+                                <label for="survey-dancing">Dancing</label>
+                                <input type="text" class="form-control" id="survey-unique-id">
+                            </div>
+                            <div class="form-group">
+                                <label for="survey-computers">Computers</label>
+                                <input type="text" class="form-control" id="survey-unique-id">
+                            </div>
+                            <div class="form-group">
+                                <label for="survey-socialmedia">Social Media</label>
+                                <input type="text" class="form-control" id="survey-unique-id">
+                            </div>
+                            <div class="form-group">
+                                <label for="survey-sports">Pro Sports</label>
+                                <input type="text" class="form-control" id="survey-unique-id">
+                            </div>
+                            <div class="form-group">
+                                <label for="survey-dogs">Dogs</label>
+                                <input type="text" class="form-control" id="survey-unique-id">
+                            </div>
+                            <div class="form-group">
+                                <label for="survey-cats">Cats</label>
                                 <input type="text" class="form-control" id="survey-unique-id">
                             </div>
                             <button type="submit" class="btn btn-primary submit">Submit</button>
@@ -67,13 +103,24 @@
             </div>
         </div>
 
-
-        <footer class="footer">
-            <div class="container">
-                <p>
-                    <a href="/api/tables">API Table Link</a>
+        <!-- Friends List Card -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h4>Your Match(s)</h4>
             </div>
-        </footer>
+            <div class="card-body">
+                <ul id="friendList" class="list-group"></ul>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>
+                <a href="/api/friends">API friend Link</a>
+        </div>
+    </footer>
 
     </div>
 
@@ -85,18 +132,26 @@
 <script type="text/javascript">
     // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
     // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
-    // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
-    // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
+    // Our api recognizes the route (/api/friends)... and then runs the associated code (found in api-routes.js).
+    // In this case the associated code "saves" the data to the friend-data.js file or waitinglist-data.js file
 
-    $(".submit").on("click", function(event) {
+    $(".submit").on("click", function (event) {
         event.preventDefault();
 
         // Here we grab the form elements
         var newFriend = {
             customerName: $("#survey-name").val().trim(),
-            phoneNumber: $("#survey-phone").val().trim(),
-            customerEmail: $("#survey-email").val().trim(),
-            customerID: $("#survey-unique-id").val().trim()
+            photoNumber: $("#survey-photo").val().trim(),
+            customerLasagna: $("#survey-lasagna").val().trim(),
+            customerBologna: $("#survey-bologna").val().trim(),
+            customerBlueCheese: $("#survey-bluecheese").val().trim(),
+            customerRecycling: $("#survey-recycling").val().trim(),
+            customerDancing: $("#survey-dancing").val().trim(),
+            customerComputers: $("#survey-computers").val().trim(),
+            customerSocialMedia: $("#survey-socialmedia").val().trim(),
+            customerSports: $("#survey-sports").val().trim(),
+            customerDogs: $("#survey-dogs").val().trim(),
+            customerCats: $("#survey-cats").val().trim()
         };
 
         console.log(newFriend);
@@ -104,26 +159,52 @@
         // This line is the magic. It"s very similar to the standard ajax function we used.
         // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
         // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
-        // depending on if a tables is available or not.
+        // depending on if a friends is available or not.
 
-        $.post("/api/tables", newFriend,
-            function(data) {
-
-                // If a table is available... tell user they are booked.
+        $.post("/api/friends", newFriend,
+            function (data) {
+                // If a friend is available... tell user they are booked.
                 if (data) {
-                    alert("Yay! You are officially booked!");
-                }
+                    var friendData = data;
+                    console.log(friendData);
+                    console.log("------------------------------------");
 
-                // If a table is available... tell user they on the waiting list.
+                    // Loop through and display each of the customers
+                    for (var i = 0; i < friendData.length; i++) {
+
+                        // Get a reference to the friendList element and populate it with friends
+                        var friendList = $("#friendList");
+
+                        // Then display the fields in the HTML (Section Name, Date, URL)
+                        var listItem = $("<li class='list-group-item mt-4'>");
+
+                        listItem.append(
+                            $("<h2>").text("friend #" + (i + 1)),
+                            $("<hr>"),
+                            $("<h2>").text("Name: " + friendData[i].customerName),
+                            $("<h2>").text("Name: " + friendData[i].photoNumber)
+                        );
+                        
+                        friendList.append(listItem);
+                    }
+                }
                 else {
-                    alert("Sorry you are on the wait list");
+                    alert("Sorry no matches :-(!");
                 }
 
                 // Clear the form when submitting
                 $("#survey-name").val("");
-                $("#survey-phone").val("");
-                $("#survey-email").val("");
-                $("#survey-unique-id").val("");
+                $("#survey-photo").val("");
+                $("#survey-lasagna").val("");
+                $("#survey-bologna").val("");
+                $("#survey-bluecheese").val("");
+                $("#survey-recycling").val("");
+                $("#survey-dancing").val("");
+                $("#survey-computers").val("");
+                $("#survey-socialmedia").val("");
+                $("#survey-sports").val("");
+                $("#survey-dogs").val("");
+                $("#survey-cats").val("");
 
             });
 
