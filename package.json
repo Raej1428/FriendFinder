@@ -1,7 +1,7 @@
 {
   "name": "hotrestaurant",
   "version": "1.0.1",
-  "description": "",
+  "description": "A survey based matching app to find a friend with similar interests.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,5 +12,14 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raej1428/FriendFinder.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Raej1428/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/Raej1428/FriendFinder#readme"
 }
