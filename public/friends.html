@@ -18,7 +18,7 @@
   <div class="container">
 
     <div class="jumbotron">
-      <h1 class="text-center"><span class="fa fa-fire"></span> Hot Restaurant</h1>
+      <h1 class="text-center"><span class="fa fa-fire"></span> Friend Finder</h1>
       <hr>
       <h2 class="text-center">Current Friends List</h2>
       <br>
@@ -31,16 +31,6 @@
 
     <div class="row">
       <div class="col-lg-12">
-
-        <!-- Current friends in Use -->
-        <div class="card">
-          <div class="card-header">
-            <h4>Current Friends</h4>
-          </div>
-          <div class="card-body">
-            <ul id="friendList" class="list-group"></ul>
-          </div>
-        </div>
 
         <!-- Friends List Card -->
         <div class="card mt-4">
@@ -75,54 +65,40 @@
   // We then dynamically display this content in our friend. This is very similar to the group projects you just completed.
   // It's also very similar to the NYT search application. In fact, I copied a ton of code from there.
 
-  function runfriendQuery() {
-    // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-    $.ajax({ url: "/api/friends", method: "GET" })
-      .then(function(friendData) {
+  // function runfriendQuery() {
+  //   // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+  //   $.ajax({ url: "/api/friends", method: "GET" })
+  //     .then(function(friendData) {
 
-        // Here we then log the friendData to console, where it will show up as an object.
-        console.log(friendData);
-        console.log("------------------------------------");
+  //       // Here we then log the friendData to console, where it will show up as an object.
+  //       console.log(friendData);
+  //       console.log("------------------------------------");
 
-        // Loop through and display each of the customers
-        for (var i = 0; i < friendData.length; i++) {
+  //       // Loop through and display each of the customers
+  //       for (var i = 0; i < friendData.length; i++) {
 
-          // Get a reference to the friendList element and populate it with friends
-          var friendList = $("#friendList");
+  //         // Get a reference to the friendList element and populate it with friends
+  //         var friendList = $("#friendList");
 
-          // Then display the fields in the HTML (Section Name, Date, URL)
-          var listItem = $("<li class='list-group-item mt-4'>");
+  //         // Then display the fields in the HTML (Section Name, Date, URL)
+  //         var listItem = $("<li class='list-group-item mt-4'>");
 
-          listItem.append(
-            $("<h2>").text("friend #" + (i + 1)),
-            $("<hr>"),
-            $("<h2>").text("Name: " + friendData[i].customerName),
-            $("<h2>").text("Name: " + friendData[i].photoNumber)
-          );
+  //         listItem.append(
+  //           $("<h2>").text("friend #" + (i + 1)),
+  //           $("<hr>"),
+  //           $("<h2>").text("Name: " + friendData[i].customerName),
+  //           $("<h2>").text("Name: " + friendData[i].photoNumber)
+  //         );
 
-          // customerName: $("#survey-name").val().trim(),
-          //   photoNumber: $("#survey-photo").val().trim(),
-          //   customerLasagna: $("#survey-lasagna").val().trim(),
-          //   customerBologna: $("#survey-bologna").val().trim(),
-          //   customerBlueCheese: $("#survey-bluecheese").val().trim(),
-          //   customerRecycling: $("#survey-recycling").val().trim(),
-          //   customerDancing: $("#survey-dancing").val().trim(),
-          //   customerComputers: $("#survey-computers").val().trim(),
-          //   customerSocialMedia: $("#survey-socialmedia").val().trim(),
-          //   customerSports: $("#survey-sports").val().trim(),
-          //   customerDogs: $("#survey-dogs").val().trim(),
-          //   customerCats: $("#survey-cats").val().trim()
-                // 
-
-          friendList.append(listItem);
-        }
-      });
-  }
+  //         friendList.append(listItem);
+  //       }
+  //     });
+  // }
 
   function runfriendListQuery() {
 
     // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-    $.ajax({ url: "/api/friendlist", method: "GET" })
+    $.ajax({ url: "/api/friends", method: "GET" })
       .then(function(friendData) {
 
         // Here we then log the friendlistData to console, where it will show up as an object.
@@ -142,7 +118,7 @@
             $("<h2>").text("friend #" + (i + 1)),
             $("<hr>"),
             $("<h2>").text("Name: " + friendData[i].customerName),
-            $("<h2>").text("Photo: " + friendData[i].customerPhoto)
+            $("<h2>").text("Photo: " + friendData[i].photoNumber)
           );
 
           friendList.append(listItem);
@@ -166,7 +142,7 @@
 
   // Run Queries!
   // ==========================================
-  runfriendQuery();
+  // runfriendQuery();
   runfriendListQuery();
 
 

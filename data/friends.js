@@ -1,138 +1,121 @@
 var friends = [{
-    "name": "Ahmed (he, him)",
-    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-    "scores": [
-        5,
-        2,
-        3,
-        1,
-        5,
-        3,
-        2,
-        1,
-        4,
-        1
-    ]
+    "customerName": "Ahmed",
+    "photoNumber": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "customerLasagna": 5,
+    "customerBologna": 2,
+    "customerBlueCheese": 3,
+    "customerRecycling": 1,
+    "customerDancing": 5,
+    "customerComputers": 3,
+    "customerSocialMedia": 2,
+    "customerSports": 1,
+    "customerDogs": 4,
+    "customerCats": 1
+    
 }, {
-    "name": "Bonnie (she, her)",
-    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-    "scores": [
-        5,
-        1,
-        4,
-        4,
-        5,
-        1,
-        3,
-        4,
-        1,
-        3
-    ]
+    "customerName": "Bonnie",
+    "photoNumber": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "customerLasagna": 4,
+    "customerBologna": 3,
+    "customerBlueCheese": 2,
+    "customerRecycling": 1,
+    "customerDancing": 4,
+    "customerComputers": 3,
+    "customerSocialMedia": 1,
+    "customerSports": 1,
+    "customerDogs": 3,
+    "customerCats": 1
 }, {
-    "name": "Julia (he, him, she, her)",
-    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-    "scores": [
-        5,
-        2,
-        1,
-        3,
-        2,
-        1,
-        5,
-        5,
-        3,
-        1
-    ]
+    "customerName": "Julia",
+    "photoNumber": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "customerLasagna": 5,
+    "customerBologna": 2,
+    "customerBlueCheese": 3,
+    "customerRecycling": 1,
+    "customerDancing": 5,
+    "customerComputers": 3,
+    "customerSocialMedia": 2,
+    "customerSports": 1,
+    "customerDogs": 4,
+    "customerCats": 1
 }, {
-    "name": "Frank (he, him)",
-    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-    "scores": [
-        4,
-        3,
-        3,
-        1,
-        3,
-        3,
-        1,
-        2,
-        5,
-        5
-    ]
+    "customerName": "Frank",
+    "photoNumber": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "customerLasagna": 4,
+    "customerBologna": 3,
+    "customerBlueCheese": 2,
+    "customerRecycling": 1,
+    "customerDancing": 4,
+    "customerComputers": 3,
+    "customerSocialMedia": 1,
+    "customerSports": 1,
+    "customerDogs": 3,
+    "customerCats": 1
 }, {
-    "name": "Belinda (she, her)",
-    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-    "scores": [
-        2,
-        1,
-        5,
-        3,
-        5,
-        1,
-        2,
-        3,
-        4,
-        1
-    ]
+    "customerName": "Belinda",
+    "photoNumber": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "customerLasagna": 5,
+    "customerBologna": 5,
+    "customerBlueCheese": 5,
+    "customerRecycling": 5,
+    "customerDancing": 5,
+    "customerComputers": 5,
+    "customerSocialMedia": 1,
+    "customerSports": 1,
+    "customerDogs": 5,
+    "customerCats": 3
 }, {
-    "name": "Rosario (she, her)",
-    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-    "scores": [
-        2,
-        1,
-        3,
-        4,
-        2,
-        1,
-        2,
-        5,
-        3,
-        2
-    ]
+    "customerName": "Rosario",
+    "photoNumber": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "customerLasagna": 5,
+    "customerBologna": 5,
+    "customerBlueCheese": 5,
+    "customerRecycling": 5,
+    "customerDancing": 5,
+    "customerComputers": 5,
+    "customerSocialMedia": 1,
+    "customerSports": 1,
+    "customerDogs": 5,
+    "customerCats": 3
 }, {
-    "name": "Mark (he, she, him, her)",
-    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-    "scores": [
-        4,
-        3,
-        2,
-        5,
-        5,
-        1,
-        5,
-        5,
-        5,
-        4
-    ]
+    "customerName": "Mark",
+    "photoNumber": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "customerLasagna": 5,
+    "customerBologna": 5,
+    "customerBlueCheese": 5,
+    "customerRecycling": 5,
+    "customerDancing": 5,
+    "customerComputers": 5,
+    "customerSocialMedia": 1,
+    "customerSports": 1,
+    "customerDogs": 5,
+    "customerCats": 3
 }, {
-    "name": "Bob (he, him)",
-    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-    "scores": [
-        5,
-        4,
-        4,
-        4,
-        5,
-        3,
-        2,
-        5,
-        4,
-        3
-    ]
+    "customerName": "Bob",
+    "photoNumber": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "customerLasagna": 5,
+    "customerBologna": 5,
+    "customerBlueCheese": 5,
+    "customerRecycling": 5,
+    "customerDancing": 5,
+    "customerComputers": 5,
+    "customerSocialMedia": 1,
+    "customerSports": 1,
+    "customerDogs": 5,
+    "customerCats": 3
 }, {
-    "name": "Fred (he, him)",
-    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-    "scores": [
-        5,
-        1,
-        3,
-        4,
-        3,
-        1,
-        2,
-        5,
-        4,
-        2
-    ]
+    "customerName": "Fred",
+    "photoNumber": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "customerLasagna": 4,
+    "customerBologna": 3,
+    "customerBlueCheese": 2,
+    "customerRecycling": 1,
+    "customerDancing": 4,
+    "customerComputers": 3,
+    "customerSocialMedia": 1,
+    "customerSports": 1,
+    "customerDogs": 3,
+    "customerCats": 1
 }, ];
 
 

@@ -52,49 +52,49 @@
                                 <input type="text" class="form-control" id="survey-name">
                             </div>
                             <div class="form-group">
-                                <label for="survey-photo">photo Number</label>
+                                <label for="survey-photo">Photo Link</label>
                                 <input type="text" class="form-control" id="survey-photo">
                             </div>
 
                             <div class="form-group">
                                 <label for="survey-lasagna">Lasagna</label>
-                                <input type="text" class="form-control" id="survey-email">
+                                <input type="text" class="form-control" id="survey-lasagna">
                             </div>
                             <div class="form-group">
                                 <label for="survey-bologna">Bologna</label>
-                                <input type="text" class="form-control" id="survey-unique-id">
+                                <input type="text" class="form-control" id="survey-bologna">
                             </div>
                             <div class="form-group">
                                 <label for="survey-bluecheese">Blue Cheese</label>
-                                <input type="text" class="form-control" id="survey-unique-id">
+                                <input type="text" class="form-control" id="survey-bluecheese">
                             </div>
                             <div class="form-group">
                                 <label for="survey-recycling">Recycling</label>
-                                <input type="text" class="form-control" id="survey-unique-id">
+                                <input type="text" class="form-control" id="survey-recycling">
                             </div>
                             <div class="form-group">
                                 <label for="survey-dancing">Dancing</label>
-                                <input type="text" class="form-control" id="survey-unique-id">
+                                <input type="text" class="form-control" id="survey-dancing">
                             </div>
                             <div class="form-group">
                                 <label for="survey-computers">Computers</label>
-                                <input type="text" class="form-control" id="survey-unique-id">
+                                <input type="text" class="form-control" id="survey-computers">
                             </div>
                             <div class="form-group">
                                 <label for="survey-socialmedia">Social Media</label>
-                                <input type="text" class="form-control" id="survey-unique-id">
+                                <input type="text" class="form-control" id="survey-socialmedia">
                             </div>
                             <div class="form-group">
                                 <label for="survey-sports">Pro Sports</label>
-                                <input type="text" class="form-control" id="survey-unique-id">
+                                <input type="text" class="form-control" id="survey-sports">
                             </div>
                             <div class="form-group">
                                 <label for="survey-dogs">Dogs</label>
-                                <input type="text" class="form-control" id="survey-unique-id">
+                                <input type="text" class="form-control" id="survey-dogs">
                             </div>
                             <div class="form-group">
                                 <label for="survey-cats">Cats</label>
-                                <input type="text" class="form-control" id="survey-unique-id">
+                                <input type="text" class="form-control" id="survey-cats">
                             </div>
                             <button type="submit" class="btn btn-primary submit">Submit</button>
                         </form>
@@ -142,16 +142,16 @@
         var newFriend = {
             customerName: $("#survey-name").val().trim(),
             photoNumber: $("#survey-photo").val().trim(),
-            customerLasagna: $("#survey-lasagna").val().trim(),
-            customerBologna: $("#survey-bologna").val().trim(),
-            customerBlueCheese: $("#survey-bluecheese").val().trim(),
-            customerRecycling: $("#survey-recycling").val().trim(),
-            customerDancing: $("#survey-dancing").val().trim(),
-            customerComputers: $("#survey-computers").val().trim(),
-            customerSocialMedia: $("#survey-socialmedia").val().trim(),
-            customerSports: $("#survey-sports").val().trim(),
-            customerDogs: $("#survey-dogs").val().trim(),
-            customerCats: $("#survey-cats").val().trim()
+            customerLasagna: $("#survey-lasagna").val(),
+            customerBologna: $("#survey-bologna").val(),
+            customerBlueCheese: $("#survey-bluecheese").val(),
+            customerRecycling: $("#survey-recycling").val(),
+            customerDancing: $("#survey-dancing").val(),
+            customerComputers: $("#survey-computers").val(),
+            customerSocialMedia: $("#survey-socialmedia").val(),
+            customerSports: $("#survey-sports").val(),
+            customerDogs: $("#survey-dogs").val(),
+            customerCats: $("#survey-cats").val()
         };
 
         console.log(newFriend);
@@ -161,7 +161,7 @@
         // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
         // depending on if a friends is available or not.
 
-        $.post("/api/friends", newFriend,
+        $.post("/api/survey", newFriend,
             function (data) {
                 // If a friend is available... tell user they are booked.
                 if (data) {
@@ -182,7 +182,7 @@
                             $("<h2>").text("friend #" + (i + 1)),
                             $("<hr>"),
                             $("<h2>").text("Name: " + friendData[i].customerName),
-                            $("<h2>").text("Name: " + friendData[i].photoNumber)
+                            $("<h2>").text("Photo: " + friendData[i].photoNumber)
                         );
                         
                         friendList.append(listItem);
