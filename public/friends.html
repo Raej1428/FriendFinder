@@ -24,7 +24,8 @@
       <br>
 
       <div class="text-center">
-        <a href="/reserve"><button class="btn btn-lg btn-danger"><span class="fa fa-credit-card"></span> Make Reservation</button></a>
+        <a href="/reserve"><button class="btn btn-lg btn-danger"><span class="fa fa-credit-card"></span> Make
+            Reservation</button></a>
         <a href="/"><button class="btn btn-lg btn-default"><span class="fa fa-home"></span></button></a>
       </div>
     </div>
@@ -48,7 +49,8 @@
     <footer class="footer mt-4">
       <div class="container">
         <p>Control Panel</p>
-        <p><a href="#" id="clear">Clear friend</a> | <a href="/api/friends">API friend Link</a> | <a href="/api/friendlist">API
+        <p><a href="#" id="clear">Clear friend</a> | <a href="/api/friends">API friend Link</a> | <a
+            href="/api/friendlist">API
             Friends List</a>
       </div>
     </footer>
@@ -99,7 +101,7 @@
 
     // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
     $.ajax({ url: "/api/friends", method: "GET" })
-      .then(function(friendData) {
+      .then(function (friendData) {
 
         // Here we then log the friendlistData to console, where it will show up as an object.
         console.log(friendData);
@@ -118,8 +120,13 @@
             $("<h2>").text("friend #" + (i + 1)),
             $("<hr>"),
             $("<h2>").text("Name: " + friendData[i].customerName),
-            $("<h2>").text("Photo: " + friendData[i].photoNumber)
+            $("<hr>")
           );
+
+          var img = document.createElement('img');        // Create an <img> element.
+          img.src = friendData[i].photoNumber;
+
+          listItem.append(img);
 
           friendList.append(listItem);
         }
@@ -131,7 +138,7 @@
     alert("Clearing...");
 
     // Clear the friends on the server and then empty the elements on the client
-    $.ajax({ url: "/api/clear", method: "POST" }).then(function() {
+    $.ajax({ url: "/api/clear", method: "POST" }).then(function () {
       $("#friendList").empty();
       $("#friendList").empty();
     });

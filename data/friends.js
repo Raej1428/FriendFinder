@@ -1,6 +1,6 @@
 var friends = [{
     "customerName": "Ahmed",
-    "photoNumber": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "photoNumber": "https://picsum.photos/200/300",
     "customerLasagna": 5,
     "customerBologna": 2,
     "customerBlueCheese": 3,
@@ -14,7 +14,7 @@ var friends = [{
     
 }, {
     "customerName": "Bonnie",
-    "photoNumber": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "photoNumber": "https://picsum.photos/200/300",
     "customerLasagna": 4,
     "customerBologna": 3,
     "customerBlueCheese": 2,
@@ -27,7 +27,7 @@ var friends = [{
     "customerCats": 1
 }, {
     "customerName": "Julia",
-    "photoNumber": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "photoNumber": "https://picsum.photos/200/300",
     "customerLasagna": 5,
     "customerBologna": 2,
     "customerBlueCheese": 3,
@@ -40,7 +40,7 @@ var friends = [{
     "customerCats": 1
 }, {
     "customerName": "Frank",
-    "photoNumber": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "photoNumber": "https://picsum.photos/200/300",
     "customerLasagna": 4,
     "customerBologna": 3,
     "customerBlueCheese": 2,
@@ -53,7 +53,7 @@ var friends = [{
     "customerCats": 1
 }, {
     "customerName": "Belinda",
-    "photoNumber": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "photoNumber": "https://picsum.photos/200/300",
     "customerLasagna": 5,
     "customerBologna": 5,
     "customerBlueCheese": 5,
@@ -66,7 +66,7 @@ var friends = [{
     "customerCats": 3
 }, {
     "customerName": "Rosario",
-    "photoNumber": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "photoNumber": "https://picsum.photos/200/300",
     "customerLasagna": 5,
     "customerBologna": 5,
     "customerBlueCheese": 5,
@@ -79,7 +79,7 @@ var friends = [{
     "customerCats": 3
 }, {
     "customerName": "Mark",
-    "photoNumber": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "photoNumber": "https://picsum.photos/200/300",
     "customerLasagna": 5,
     "customerBologna": 5,
     "customerBlueCheese": 5,
@@ -92,7 +92,7 @@ var friends = [{
     "customerCats": 3
 }, {
     "customerName": "Bob",
-    "photoNumber": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "photoNumber": "https://picsum.photos/200/300",
     "customerLasagna": 5,
     "customerBologna": 5,
     "customerBlueCheese": 5,
@@ -105,7 +105,7 @@ var friends = [{
     "customerCats": 3
 }, {
     "customerName": "Fred",
-    "photoNumber": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "photoNumber": "https://picsum.photos/200/300",
     "customerLasagna": 4,
     "customerBologna": 3,
     "customerBlueCheese": 2,
