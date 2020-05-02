@@ -15,107 +15,123 @@ var friends = [{
 }, {
     "customerName": "Bonnie",
     "photoNumber": "https://picsum.photos/200/300",
-    "customerLasagna": 4,
-    "customerBologna": 3,
-    "customerBlueCheese": 2,
-    "customerRecycling": 1,
-    "customerDancing": 4,
-    "customerComputers": 3,
-    "customerSocialMedia": 1,
-    "customerSports": 1,
-    "customerDogs": 3,
-    "customerCats": 1
+    "scores":[
+        5,
+        1,
+        4,
+        4,
+        5,
+        1,
+        2,
+        5,
+        4,
+        1
+      ]
 }, {
     "customerName": "Julia",
     "photoNumber": "https://picsum.photos/200/300",
-    "customerLasagna": 5,
-    "customerBologna": 2,
-    "customerBlueCheese": 3,
-    "customerRecycling": 1,
-    "customerDancing": 5,
-    "customerComputers": 3,
-    "customerSocialMedia": 2,
-    "customerSports": 1,
-    "customerDogs": 4,
-    "customerCats": 1
+    "scores":[
+        5,
+        1,
+        4,
+        4,
+        5,
+        1,
+        2,
+        5,
+        4,
+        1
+      ]
 }, {
     "customerName": "Frank",
     "photoNumber": "https://picsum.photos/200/300",
-    "customerLasagna": 4,
-    "customerBologna": 3,
-    "customerBlueCheese": 2,
-    "customerRecycling": 1,
-    "customerDancing": 4,
-    "customerComputers": 3,
-    "customerSocialMedia": 1,
-    "customerSports": 1,
-    "customerDogs": 3,
-    "customerCats": 1
+    "scores":[
+        5,
+        1,
+        4,
+        4,
+        5,
+        1,
+        2,
+        5,
+        4,
+        1
+      ]
 }, {
     "customerName": "Belinda",
     "photoNumber": "https://picsum.photos/200/300",
-    "customerLasagna": 5,
-    "customerBologna": 5,
-    "customerBlueCheese": 5,
-    "customerRecycling": 5,
-    "customerDancing": 5,
-    "customerComputers": 5,
-    "customerSocialMedia": 1,
-    "customerSports": 1,
-    "customerDogs": 5,
-    "customerCats": 3
+    "scores":[
+        5,
+        1,
+        4,
+        4,
+        5,
+        1,
+        2,
+        5,
+        4,
+        1
+      ]
 }, {
     "customerName": "Rosario",
     "photoNumber": "https://picsum.photos/200/300",
-    "customerLasagna": 5,
-    "customerBologna": 5,
-    "customerBlueCheese": 5,
-    "customerRecycling": 5,
-    "customerDancing": 5,
-    "customerComputers": 5,
-    "customerSocialMedia": 1,
-    "customerSports": 1,
-    "customerDogs": 5,
-    "customerCats": 3
+    "scores":[
+        5,
+        1,
+        4,
+        4,
+        5,
+        1,
+        2,
+        5,
+        4,
+        1
+      ]
 }, {
     "customerName": "Mark",
     "photoNumber": "https://picsum.photos/200/300",
-    "customerLasagna": 5,
-    "customerBologna": 5,
-    "customerBlueCheese": 5,
-    "customerRecycling": 5,
-    "customerDancing": 5,
-    "customerComputers": 5,
-    "customerSocialMedia": 1,
-    "customerSports": 1,
-    "customerDogs": 5,
-    "customerCats": 3
+    "scores":[
+        5,
+        1,
+        4,
+        4,
+        5,
+        1,
+        2,
+        5,
+        4,
+        1
+      ]
 }, {
     "customerName": "Bob",
     "photoNumber": "https://picsum.photos/200/300",
-    "customerLasagna": 5,
-    "customerBologna": 5,
-    "customerBlueCheese": 5,
-    "customerRecycling": 5,
-    "customerDancing": 5,
-    "customerComputers": 5,
-    "customerSocialMedia": 1,
-    "customerSports": 1,
-    "customerDogs": 5,
-    "customerCats": 3
+    "scores":[
+        5,
+        1,
+        4,
+        4,
+        5,
+        1,
+        2,
+        5,
+        4,
+        1
+      ]
 }, {
     "customerName": "Fred",
     "photoNumber": "https://picsum.photos/200/300",
-    "customerLasagna": 4,
-    "customerBologna": 3,
-    "customerBlueCheese": 2,
-    "customerRecycling": 1,
-    "customerDancing": 4,
-    "customerComputers": 3,
-    "customerSocialMedia": 1,
-    "customerSports": 1,
-    "customerDogs": 3,
-    "customerCats": 1
+    "scores":[
+        5,
+        1,
+        4,
+        4,
+        5,
+        1,
+        2,
+        5,
+        4,
+        1
+      ]
 }, ];
 
 

@@ -103,14 +103,36 @@
             </div>
         </div>
 
-        <!-- Friends List Card -->
-        <div class="card mt-4">
-            <div class="card-header">
-                <h4>Your Match(s)</h4>
+        <!-- Friends Match Modal -->
+        <div id="resultsModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+    
+              <!-- Modal Content-->
+              <div class="modal-content">
+    
+                <!-- "X" Button to close the modal -->
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h2 class="modal-title"><strong>Meet Your New Friend!</strong></h2>
+                </div>
+    
+                <!-- Modal Body (For Match Info) -->
+                <div class="modal-body">
+                  <h2 id="matchName"></h2>
+                  <img id="matchImg" src="" alt="Image Not Found" style="max-width: 350px;">
+                </div>
+    
+                <!-- Modal Footer (Close Button) -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+    
+              </div>
+    
             </div>
-            <div class="card-body">
-                <ul id="friendList" class="list-group"></ul>
-            </div>
+          </div>
+    
+    
         </div>
     </div>
     </div>
@@ -130,83 +152,106 @@
 
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
 <script type="text/javascript">
-    // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
-    // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
-    // Our api recognizes the route (/api/friends)... and then runs the associated code (found in api-routes.js).
-    // In this case the associated code "saves" the data to the friend-data.js file or waitinglist-data.js file
+    // Global Variable Declaration (scoping fix)
+    var allFieldsCompleted;
 
-    $(".submit").on("click", function (event) {
-        event.preventDefault();
+    $(document).ready(function () {
 
-        // Here we grab the form elements
-        var newFriend = {
-            customerName: $("#survey-name").val().trim(),
-            photoNumber: $("#survey-photo").val().trim(),
-            customerLasagna: $("#survey-lasagna").val(),
-            customerBologna: $("#survey-bologna").val(),
-            customerBlueCheese: $("#survey-bluecheese").val(),
-            customerRecycling: $("#survey-recycling").val(),
-            customerDancing: $("#survey-dancing").val(),
-            customerComputers: $("#survey-computers").val(),
-            customerSocialMedia: $("#survey-socialmedia").val(),
-            customerSports: $("#survey-sports").val(),
-            customerDogs: $("#survey-dogs").val(),
-            customerCats: $("#survey-cats").val()
-        };
+        // Event Listener for Submission
+        $('#submitButton').on('click', function () {
 
-        console.log(newFriend);
+            // Check if all the user fields are completed
+            checkIfComplete(function () {
 
-        // This line is the magic. It"s very similar to the standard ajax function we used.
-        // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
-        // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
-        // depending on if a friends is available or not.
-
-        $.post("/api/survey", newFriend,
-            function (data) {
-                // If a friend is available... tell user they are booked.
-                if (data) {
-                    var friendData = data;
-                    console.log(friendData);
-                    console.log("------------------------------------");
-
-                    // Loop through and display each of the customers
-                    for (var i = 0; i < friendData.length; i++) {
-
-                        // Get a reference to the friendList element and populate it with friends
-                        var friendList = $("#friendList");
-
-                        // Then display the fields in the HTML (Section Name, Date, URL)
-                        var listItem = $("<li class='list-group-item mt-4'>");
-
-                        listItem.append(
-                            $("<h2>").text("friend #" + (i + 1)),
-                            $("<hr>"),
-                            $("<h2>").text("Name: " + friendData[i].customerName),
-                            $("<h2>").text("Photo: " + friendData[i].photoNumber)
-                        );
-                        
-                        friendList.append(listItem);
-                    }
+                // Proceed with AJAX call if all questions are answered
+                if (allFieldsCompleted) {
+                    collectInputs();
                 }
                 else {
-                    alert("Sorry no matches :-(!");
+                    alert('Please complete all fields before submitting!');
                 }
 
-                // Clear the form when submitting
-                $("#survey-name").val("");
-                $("#survey-photo").val("");
-                $("#survey-lasagna").val("");
-                $("#survey-bologna").val("");
-                $("#survey-bluecheese").val("");
-                $("#survey-recycling").val("");
-                $("#survey-dancing").val("");
-                $("#survey-computers").val("");
-                $("#survey-socialmedia").val("");
-                $("#survey-sports").val("");
-                $("#survey-dogs").val("");
-                $("#survey-cats").val("");
+            }); // end checkIfComplete() callback
+
+        }); // end submit listener
+
+    }); // document ready
+
+
+    // Function to valid user input
+    function checkIfComplete(callback) {
+
+        // Check through all the questions (i.e. iterate through all of class "form-control")
+        var questionsCompleted;
+        $('.form-control').each(function () {
+            if ($(this).val() == "") {
+                questionsCompleted = false;
+            }
+        })
+
+            // This counters the async behavior of $.each()
+            .promise().done(function () {
+
+                // Check if any questions are incomplete
+                if (questionsCompleted == false) {
+                    allFieldsCompleted = false;
+                }
+
+                // Determine if Name is entered
+                else if ($('#survey-name').val().trim() == "") {
+                    allFieldsCompleted = false;
+                }
+
+                // Determine if Link is entered
+                else if ($('#survey-photo').val().trim() == "") {
+                    allFieldsCompleted = false;
+                }
+
+                // Otherwise, the all fields are completed
+                else {
+                    allFieldsCompleted = true;
+                }
+
+                // Fire Off Callback (to counter async behavior of $.each)
+                callback();
 
             });
+    }
 
-    });
+
+    function collectInputs() {
+
+        // Make new friend object
+        var newFriend = {
+            name: $('#survey-name').val().trim(),
+            photo: $('#survey-photo').val().trim(),
+            scores: []
+        }; // end variable
+
+        // Loop through Questions to get scores
+        var scoresArray = [];
+        $('.form-control').each(function () {
+            scoresArray.push(parseInt($(this).val())); // Parse Input Value as integer
+        }) //begin promise
+            // This counters the async behavior of $.each()
+            .promise().done(function () {
+
+                // Push the array of scores to the new friend object
+                newFriend.scores = scoresArray;
+
+                // POST the newFriend to the friends.js file and get back the best match
+                var currentURL = window.location.origin;
+                $.post(currentURL + "/api/friends", newFriend, function (data) {
+
+                    // Add Best Match 
+                    $('#matchName').text(data.customerName);
+                    $('#matchImg').attr('src', data.photoNumber);
+
+                    $("#resultsModal").modal('toggle');
+
+                }); // end post
+
+            }); //end promise
+
+    }
 </script>
