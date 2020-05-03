@@ -29,29 +29,23 @@ module.exports = function (app) {
   // Then the server saves the data to the friendData array)
   // ---------------------------------------------------------------------------
   app.post("/api/survey", function (req, res) {
-    res.json(friendData);
-    // Note the code here. Our "server" will respond to requests and let users know if they have a survey or not.
-    // It will do this by sending out the value "true" have a survey
-    // req.body is available since we're using the body parsing middleware
-    var newFriend = {
-      name: friendData.customerName,
-      photo: friendData.photoNumber,
-      scores: []
-    };
+    friendData.push(res.body);
+    console.log("this is inside apiroutes but inside post as well " + req.body.scores);
 
-    console.log(newFriend);
+   console.log("this is inside the apiroutes.js file and they have a friend: " + req.body.customerName);
+
     var scoresArray = [];
-    for (var i = 0; i < newFriend.scores.length; i++) {
-      scoresArray.push(parseInt(newFriend.scores[i]))
+    for (var i = 0; i < req.body.scores.length; i++) {
+      scoresArray.push(parseInt(req.body.scores[i]))
     }
-    newFriend.scores = scoresArray;
+    console.log(scoresArray);
 
     var scoreComparisionArray = [];
     // Check each friend's scores and sum difference in points
     for (var i = 0; i < friendData.length; i++) {
       var currentComparison = '';
-      for (var j = 0; j < newFriend.scores.length; j++) {
-        currentComparison += Math.abs(newFriend.scores[j] - friendData[i].scores[j]);
+      for (var j = 0; j < scoresArray.length; j++) {
+        currentComparison += Math.abs(scoresArray[j] - friendData[i].scores[j]);
       }
       // Push each comparison between friends to array
       scoreComparisionArray.push(currentComparison);
@@ -62,9 +56,9 @@ module.exports = function (app) {
       // Lower number in comparison difference means better match
       if (scoreComparisionArray[i] <= scoreComparisionArray[bestMatchPosition]) {
         bestMatchPosition = i;
-        res.json(true);
+        // res.json(true);
       } else {
-        res.json(false);
+        // res.json(false);
       }
     }
 
@@ -72,16 +66,13 @@ module.exports = function (app) {
     // Reply with a JSON object of the best match
     res.json(bestFriendMatch);
     // Push the new friend to the friends data array for storage
-    friendData.push(newFriend);
-
-    
-
+    friendData.push(req.body);
   });
 
   app.post("/api/clear", function (req, res) {
     // Empty out the arrays of data
-    console.log(bestFriendMatch);
-    console.log(newFriend);
+    console.log("clear" + bestFriendMatch);
+    console.log("clear" + req.body);
     friendData.length = 0;
     res.json({ ok: true });
   });
@@ -89,18 +80,18 @@ module.exports = function (app) {
 }
 //   app.post('/api/survey', function (req, res) {
 //     // Parse new friend input to get integers (AJAX post seemed to make the numbers strings)
-//     var newFriend = {
+//     var req.body = {
 //       name: req.body.customerName,
 //       photo: req.body.photoNumber,
 //       scores: []
 //     };
 
-//     console.log(newFriend);
+//     console.log(req.body);
 //     var scoresArray = [];
-//     for (var i = 0; i < newFriend.scores.length; i++) {
-//       scoresArray.push(parseInt(newFriend.scores[i]))
+//     for (var i = 0; i < req.body.scores.length; i++) {
+//       scoresArray.push(parseInt(req.body.scores[i]))
 //     }
-//     newFriend.scores = scoresArray;
+//     req.body.scores = scoresArray;
 
 //     // Cross check the new friend entry with the existing ones
 //     var scoreComparisionArray = [];
@@ -108,8 +99,8 @@ module.exports = function (app) {
 
 //       // Check each friend's scores and sum difference in points
 //       var currentComparison = '';
-//       for (var j = 0; j < newFriend.scores.length; j++) {
-//         currentComparison += Math.abs(newFriend.scores[j] - friendData[i].scores[j]);
+//       for (var j = 0; j < req.body.scores.length; j++) {
+//         currentComparison += Math.abs(req.body.scores[j] - friendData[i].scores[j]);
 //       }
 
 //       // Push each comparison between friends to array
@@ -131,7 +122,7 @@ module.exports = function (app) {
 //     // Reply with a JSON object of the best match
 //     res.json(bestFriendMatch);
 //     // Push the new friend to the friends data array for storage
-//     friendData.push(newFriend);
+//     friendData.push(req.body);
 
 //   });
 //   // ---------------------------------------------------------------------------
@@ -141,7 +132,7 @@ module.exports = function (app) {
 //   app.post("/api/clear", function (req, res) {
 //     // Empty out the arrays of data
 //     console.log(bestFriendMatch);
-//     console.log(newFriend);
+//     console.log(req.body);
 //     friendData.length = 0;
 //     res.json({ ok: true });
 //   });

@@ -48,52 +48,52 @@
                     <div class="card-body">
                         <form role="form">
                             <div class="form-group">
-                                <label for="survey-name">Name</label>
+                                <label for="customerName">Name</label>
                                 <input type="text" class="form-control" id="survey-name">
                             </div>
                             <div class="form-group">
-                                <label for="survey-photo">Photo Link</label>
+                                <label for="photoNumber">Photo Link</label>
                                 <input type="text" class="form-control" id="survey-photo">
                             </div>
 
                             <div class="form-group">
-                                <label for="survey-lasagna">Lasagna</label>
+                                <label for="scores">Lasagna</label>
                                 <input type="text" data-placeholder="" class="answered" id="survey-lasagna">
                             </div>
                             <div class="form-group">
-                                <label for="survey-bologna">Bologna</label>
+                                <label for="scores">Bologna</label>
                                 <input type="text" data-placeholder="" class="answered" id="survey-bologna">
                             </div>
                             <div class="form-group">
-                                <label for="survey-bluecheese">Blue Cheese</label>
+                                <label for="scores">Blue Cheese</label>
                                 <input type="text" data-placeholder="" class="answered" id="survey-bluecheese">
                             </div>
                             <div class="form-group">
-                                <label for="survey-recycling">Recycling</label>
+                                <label for="scores">Recycling</label>
                                 <input type="text" data-placeholder="" class="answered" id="survey-recycling">
                             </div>
                             <div class="form-group">
-                                <label for="survey-dancing">Dancing</label>
+                                <label for="scores">Dancing</label>
                                 <input type="text" data-placeholder="" class="answered" id="survey-dancing">
                             </div>
                             <div class="form-group">
-                                <label for="survey-computers">Computers</label>
+                                <label for="scores">Computers</label>
                                 <input type="text" data-placeholder="" class="answered" id="survey-computers">
                             </div>
                             <div class="form-group">
-                                <label for="survey-socialmedia">Social Media</label>
+                                <label for="scores">Social Media</label>
                                 <input type="text" data-placeholder="" class="answered" id="survey-socialmedia">
                             </div>
                             <div class="form-group">
-                                <label for="survey-sports">Pro Sports</label>
+                                <label for="scores">Pro Sports</label>
                                 <input type="text" data-placeholder="" class="answered" id="survey-sports">
                             </div>
                             <div class="form-group">
-                                <label for="survey-dogs">Dogs</label>
+                                <label for="scores">Dogs</label>
                                 <input type="text" data-placeholder="" class="answered" id="survey-dogs">
                             </div>
                             <div class="form-group">
-                                <label for="survey-cats">Cats</label>
+                                <label for="scores">Cats</label>
                                 <input type="text" data-placeholder="" class="answered" id="survey-cats">
                             </div>
                             <button type="submit" class="btn btn-primary submit">Submit</button>
@@ -154,35 +154,43 @@
 
         // Here we grab the form elements
         var newFriend = {
-            name: $("#survey-name").val().trim(),
-            photo: $("#survey-photo").val().trim(),
-            scores: []
+            customerName: $("#survey-name").val().trim(),
+            photoNumber: $("#survey-photo").val().trim(),
+            scores: [$(".answered").val().trim()]
         };
         console.log(newFriend);
 
-        // This line is the magic. It"s very similar to the standard ajax function we used.
-        // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
-        // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
-        // depending on if a tables is available or not.
+        var scoresArray = [];
+        $('.answered').each(function () {
+            scoresArray.push(parseInt($(this).val())); // Parse Input Value as integer
+        }).promise().done(function () {
+            newFriend.scores = scoresArray;
+            // This line is the magic. It"s very similar to the standard ajax function we used.
+            // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
+            // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
+            // depending on if a tables is available or not.
 
-        $.post("/api/survey", newFriend,
-            function (data) {
-                // If a table is available... tell user they are booked.
-                if (data) {
-                    alert("Yay! You've been matched!");
-                }
+            $.post("/api/survey", newFriend,
+                function (req, res) {
+                    // If a table is available... tell user they are booked.
+                    console.log("this is the data inside the survey apge post function" + res.body.customerName);
+                    console.log("they have a match and its" + bestFriendMatch);
+                    if (res) {
+                        alert("Yay! You've been matched!");
+                    }
 
-                // If a table is available... tell user they on the waiting list.
-                else {
-                    alert("Sorry no perfect matches today, check back later!");
-                }
+                    // If form is incomplete or no match.
+                    else {
+                        alert("Sorry no perfect matches today, check back later!");
+                    }
 
-                // display match in modal
-                $("#matchName").text(data.customerName);
-                $("#matchImg").attr("src", data.photoNumber);
-                $("#resultsModal").modal("show");
+                    // display match in modal
+                    $("#matchName").text(newFriend.customerName);
+                    $("#matchImg").attr("src", newFriend.photoNumber);
+                    $("#resultsModal").modal("show");
 
-            });
+                });
+        });
 
     });
 
