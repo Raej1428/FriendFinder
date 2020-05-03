@@ -58,43 +58,43 @@
 
                             <div class="form-group">
                                 <label for="survey-lasagna">Lasagna</label>
-                                <input type="text" class="form-control" id="survey-lasagna">
+                                <input type="text" data-placeholder="" class="answered" id="survey-lasagna">
                             </div>
                             <div class="form-group">
                                 <label for="survey-bologna">Bologna</label>
-                                <input type="text" class="form-control" id="survey-bologna">
+                                <input type="text" data-placeholder="" class="answered" id="survey-bologna">
                             </div>
                             <div class="form-group">
                                 <label for="survey-bluecheese">Blue Cheese</label>
-                                <input type="text" class="form-control" id="survey-bluecheese">
+                                <input type="text" data-placeholder="" class="answered" id="survey-bluecheese">
                             </div>
                             <div class="form-group">
                                 <label for="survey-recycling">Recycling</label>
-                                <input type="text" class="form-control" id="survey-recycling">
+                                <input type="text" data-placeholder="" class="answered" id="survey-recycling">
                             </div>
                             <div class="form-group">
                                 <label for="survey-dancing">Dancing</label>
-                                <input type="text" class="form-control" id="survey-dancing">
+                                <input type="text" data-placeholder="" class="answered" id="survey-dancing">
                             </div>
                             <div class="form-group">
                                 <label for="survey-computers">Computers</label>
-                                <input type="text" class="form-control" id="survey-computers">
+                                <input type="text" data-placeholder="" class="answered" id="survey-computers">
                             </div>
                             <div class="form-group">
                                 <label for="survey-socialmedia">Social Media</label>
-                                <input type="text" class="form-control" id="survey-socialmedia">
+                                <input type="text" data-placeholder="" class="answered" id="survey-socialmedia">
                             </div>
                             <div class="form-group">
                                 <label for="survey-sports">Pro Sports</label>
-                                <input type="text" class="form-control" id="survey-sports">
+                                <input type="text" data-placeholder="" class="answered" id="survey-sports">
                             </div>
                             <div class="form-group">
                                 <label for="survey-dogs">Dogs</label>
-                                <input type="text" class="form-control" id="survey-dogs">
+                                <input type="text" data-placeholder="" class="answered" id="survey-dogs">
                             </div>
                             <div class="form-group">
                                 <label for="survey-cats">Cats</label>
-                                <input type="text" class="form-control" id="survey-cats">
+                                <input type="text" data-placeholder="" class="answered" id="survey-cats">
                             </div>
                             <button type="submit" class="btn btn-primary submit">Submit</button>
                         </form>
@@ -106,34 +106,31 @@
         <!-- Friends Match Modal -->
         <div id="resultsModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
-    
-              <!-- Modal Content-->
-              <div class="modal-content">
-    
-                <!-- "X" Button to close the modal -->
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h2 class="modal-title"><strong>Meet Your New Friend!</strong></h2>
+
+                <!-- Modal Content-->
+                <div class="modal-content">
+
+                    <!-- "X" Button to close the modal -->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h2 class="modal-title"><strong>Meet Your New Friend!</strong></h2>
+                    </div>
+
+                    <div class="modal-body">
+                        <h2 id="matchName"></h2>
+                        <img id="matchImg" src="" alt="Image Not Found" style="max-width: 350px;">
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+
                 </div>
-    
-                <!-- Modal Body (For Match Info) -->
-                <div class="modal-body">
-                  <h2 id="matchName"></h2>
-                  <img id="matchImg" src="" alt="Image Not Found" style="max-width: 350px;">
-                </div>
-    
-                <!-- Modal Footer (Close Button) -->
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-    
-              </div>
-    
+
             </div>
-          </div>
-    
-    
         </div>
+
+    </div>
     </div>
     </div>
 
@@ -149,109 +146,44 @@
 </body>
 
 </html>
-
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
 <script type="text/javascript">
-    // Global Variable Declaration (scoping fix)
-    var allFieldsCompleted;
 
-    $(document).ready(function () {
+    $(".submit").on("click", function (event) {
+        event.preventDefault();
 
-        // Event Listener for Submission
-        $('#submitButton').on('click', function () {
+        // Here we grab the form elements
+        var newFriend = {
+            name: $("#survey-name").val().trim(),
+            photo: $("#survey-photo").val().trim(),
+            scores: []
+        };
+        console.log(newFriend);
 
-            // Check if all the user fields are completed
-            checkIfComplete(function () {
+        // This line is the magic. It"s very similar to the standard ajax function we used.
+        // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
+        // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
+        // depending on if a tables is available or not.
 
-                // Proceed with AJAX call if all questions are answered
-                if (allFieldsCompleted) {
-                    collectInputs();
+        $.post("/api/survey", newFriend,
+            function (data) {
+                // If a table is available... tell user they are booked.
+                if (data) {
+                    alert("Yay! You've been matched!");
                 }
+
+                // If a table is available... tell user they on the waiting list.
                 else {
-                    alert('Please complete all fields before submitting!');
+                    alert("Sorry no perfect matches today, check back later!");
                 }
 
-            }); // end checkIfComplete() callback
-
-        }); // end submit listener
-
-    }); // document ready
-
-
-    // Function to valid user input
-    function checkIfComplete(callback) {
-
-        // Check through all the questions (i.e. iterate through all of class "form-control")
-        var questionsCompleted;
-        $('.form-control').each(function () {
-            if ($(this).val() == "") {
-                questionsCompleted = false;
-            }
-        })
-
-            // This counters the async behavior of $.each()
-            .promise().done(function () {
-
-                // Check if any questions are incomplete
-                if (questionsCompleted == false) {
-                    allFieldsCompleted = false;
-                }
-
-                // Determine if Name is entered
-                else if ($('#survey-name').val().trim() == "") {
-                    allFieldsCompleted = false;
-                }
-
-                // Determine if Link is entered
-                else if ($('#survey-photo').val().trim() == "") {
-                    allFieldsCompleted = false;
-                }
-
-                // Otherwise, the all fields are completed
-                else {
-                    allFieldsCompleted = true;
-                }
-
-                // Fire Off Callback (to counter async behavior of $.each)
-                callback();
+                // display match in modal
+                $("#matchName").text(data.customerName);
+                $("#matchImg").attr("src", data.photoNumber);
+                $("#resultsModal").modal("show");
 
             });
-    }
 
+    });
 
-    function collectInputs() {
-
-        // Make new friend object
-        var newFriend = {
-            name: $('#survey-name').val().trim(),
-            photo: $('#survey-photo').val().trim(),
-            scores: []
-        }; // end variable
-
-        // Loop through Questions to get scores
-        var scoresArray = [];
-        $('.form-control').each(function () {
-            scoresArray.push(parseInt($(this).val())); // Parse Input Value as integer
-        }) //begin promise
-            // This counters the async behavior of $.each()
-            .promise().done(function () {
-
-                // Push the array of scores to the new friend object
-                newFriend.scores = scoresArray;
-
-                // POST the newFriend to the friends.js file and get back the best match
-                var currentURL = window.location.origin;
-                $.post(currentURL + "/api/friends", newFriend, function (data) {
-
-                    // Add Best Match 
-                    $('#matchName').text(data.customerName);
-                    $('#matchImg').attr('src', data.photoNumber);
-
-                    $("#resultsModal").modal('toggle');
-
-                }); // end post
-
-            }); //end promise
-
-    }
 </script>

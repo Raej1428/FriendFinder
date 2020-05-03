@@ -1,20 +1,22 @@
 var friends = [{
     "customerName": "Ahmed",
-    "photoNumber": "https://picsum.photos/200/300",
-    "customerLasagna": 5,
-    "customerBologna": 2,
-    "customerBlueCheese": 3,
-    "customerRecycling": 1,
-    "customerDancing": 5,
-    "customerComputers": 3,
-    "customerSocialMedia": 2,
-    "customerSports": 1,
-    "customerDogs": 4,
-    "customerCats": 1
+    "photoNumber": "https://picsum.photos/seed/picsum/200/300",
+    "scores":[
+        5,
+        1,
+        4,
+        4,
+        5,
+        1,
+        2,
+        5,
+        4,
+        1
+      ]
     
 }, {
     "customerName": "Bonnie",
-    "photoNumber": "https://picsum.photos/200/300",
+    "photoNumber": "https://picsum.photos/seed/picsum/200/300",
     "scores":[
         5,
         1,
@@ -29,7 +31,7 @@ var friends = [{
       ]
 }, {
     "customerName": "Julia",
-    "photoNumber": "https://picsum.photos/200/300",
+    "photoNumber": "https://picsum.photos/seed/picsum/200/300",
     "scores":[
         5,
         1,
@@ -44,7 +46,7 @@ var friends = [{
       ]
 }, {
     "customerName": "Frank",
-    "photoNumber": "https://picsum.photos/200/300",
+    "photoNumber": "https://picsum.photos/seed/picsum/200/300",
     "scores":[
         5,
         1,
@@ -59,7 +61,7 @@ var friends = [{
       ]
 }, {
     "customerName": "Belinda",
-    "photoNumber": "https://picsum.photos/200/300",
+    "photoNumber": "https://picsum.photos/seed/picsum/200/300",
     "scores":[
         5,
         1,
@@ -74,7 +76,7 @@ var friends = [{
       ]
 }, {
     "customerName": "Rosario",
-    "photoNumber": "https://picsum.photos/200/300",
+    "photoNumber": "https://picsum.photos/seed/picsum/200/300",
     "scores":[
         5,
         1,
@@ -89,7 +91,7 @@ var friends = [{
       ]
 }, {
     "customerName": "Mark",
-    "photoNumber": "https://picsum.photos/200/300",
+    "photoNumber": "https://picsum.photos/seed/picsum/200/300",
     "scores":[
         5,
         1,
@@ -104,7 +106,7 @@ var friends = [{
       ]
 }, {
     "customerName": "Bob",
-    "photoNumber": "https://picsum.photos/200/300",
+    "photoNumber": "https://picsum.photos/seed/picsum/200/300",
     "scores":[
         5,
         1,
@@ -119,7 +121,7 @@ var friends = [{
       ]
 }, {
     "customerName": "Fred",
-    "photoNumber": "https://picsum.photos/200/300",
+    "photoNumber": "https://picsum.photos/seed/picsum/200/300",
     "scores":[
         5,
         1,
