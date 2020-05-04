@@ -1,5 +1,5 @@
 {
-  "name": "hotrestaurant",
+  "name": "FriendFinder",
   "version": "1.0.1",
   "description": "A survey based matching app to find a friend with similar interests.",
   "main": "server.js",
