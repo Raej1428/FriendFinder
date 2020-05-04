@@ -5,7 +5,7 @@ A survey based matching app to find a friend with similar interests.
 
 <h3>Then this FriendFinder app has someone for you!</h3>
 
-![Heroku Deployed Applications](https://surveybasedmatchingforfriends.herokuapp.com/)
+https://surveybasedmatchingforfriends.herokuapp.com/
 
 
 <ul>
