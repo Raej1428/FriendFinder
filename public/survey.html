@@ -4,17 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Survey Page</title>
-
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
 </head>
 
 <body>
-
     <div class="container">
 
         <div class="jumbotron">
@@ -24,10 +19,10 @@
             <h2 class="text-center">Fill out the Survey. Find a new friend.</h2>
             <br>
             <div class="text-center">
-                <!-- <a href="/friends">
-          <button class="btn btn-lg btn-primary">
-            <span class="fa fa-list-alt"></span> View friends</button>
-        </a> -->
+                <a href="/friends">
+                    <button class="btn btn-lg btn-primary">
+                        <span class="fa fa-list-alt"></span> View friends</button>
+                </a>
                 <a href="/">
                     <button class="btn btn-lg btn-default">
                         <span class="fa fa-home"></span>
@@ -49,82 +44,143 @@
                         <form role="form">
                             <div class="form-group">
                                 <label for="customerName">Name</label>
-                                <input type="text" class="form-control" id="survey-name">
+                                <input type="text" class="form-control" name="customerName" id="customerName">
                             </div>
                             <div class="form-group">
                                 <label for="photoNumber">Photo Link</label>
-                                <input type="text" class="form-control" id="survey-photo">
+                                <input type="text" class="form-control" name="photoNumber" id="photoNumber">
                             </div>
 
                             <div class="form-group">
-                                <label for="scores">Lasagna</label>
-                                <input type="text" data-placeholder="" class="answered" id="survey-lasagna">
+                                <h2>Lasagna</h2>
+                                <select data-placeholder="" class="chosen-select" id="Q10">
+                                    <option value=""></option>
+                                    <option value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="scores">Bologna</label>
-                                <input type="text" data-placeholder="" class="answered" id="survey-bologna">
+                                <h2>Bologna</h2>
+                                <select data-placeholder="" class="chosen-select" id="Q10">
+                                    <option value=""></option>
+                                    <option value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="scores">Blue Cheese</label>
-                                <input type="text" data-placeholder="" class="answered" id="survey-bluecheese">
+                                <h2>Blue Cheese</h2>
+                                <select data-placeholder="" class="chosen-select" id="Q10">
+                                    <option value=""></option>
+                                    <option value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="scores">Recycling</label>
-                                <input type="text" data-placeholder="" class="answered" id="survey-recycling">
+                                <h2>Recycling</h2>
+                                <select data-placeholder="" class="chosen-select" id="Q10">
+                                    <option value=""></option>
+                                    <option value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="scores">Dancing</label>
-                                <input type="text" data-placeholder="" class="answered" id="survey-dancing">
+                                <h2>Dancing</h2>
+                                <select data-placeholder="" class="chosen-select" id="Q10">
+                                    <option value=""></option>
+                                    <option value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="scores">Computers</label>
-                                <input type="text" data-placeholder="" class="answered" id="survey-computers">
+                                <h2>Computers</h2>
+                                <select data-placeholder="" class="chosen-select" id="Q10">
+                                    <option value=""></option>
+                                    <option value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="scores">Social Media</label>
-                                <input type="text" data-placeholder="" class="answered" id="survey-socialmedia">
+                                <h2>Social Media</h2>
+                                <select data-placeholder="" class="chosen-select" id="Q10">
+                                    <option value=""></option>
+                                    <option value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="scores">Pro Sports</label>
-                                <input type="text" data-placeholder="" class="answered" id="survey-sports">
+                                <h2>Pro Sports</h2>
+                                <select data-placeholder="" class="chosen-select" id="Q10">
+                                    <option value=""></option>
+                                    <option value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="scores">Dogs</label>
-                                <input type="text" data-placeholder="" class="answered" id="survey-dogs">
+                                <h2>Dogs</h2>
+                                <select data-placeholder="" class="chosen-select" id="Q10">
+                                    <option value=""></option>
+                                    <option value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="scores">Cats</label>
-                                <input type="text" data-placeholder="" class="answered" id="survey-cats">
+                                <h2>Cats</h2>
+                                <select data-placeholder="" class="chosen-select" id="Q10">
+                                    <option value=""></option>
+                                    <option value="1">1 (Strongly Disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (Strongly Agree)</option>
+                                </select>
                             </div>
-                            <button type="submit" class="btn btn-primary submit">Submit</button>
+                            <button id="submitButton" type="submit" class="btn btn-md btn-block">
+                                <h4><span class="glyphicon glyphicon-send"></span> Submit</h4>
+                            </button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Friends Match Modal -->
-        <div id="resultsModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-
-                <!-- Modal Content-->
-                <div class="modal-content">
-
-                    <!-- "X" Button to close the modal -->
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h2 class="modal-title"><strong>Meet Your New Friend!</strong></h2>
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Survey Page -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2> It's a Match!</h2>
+                        <div class="card-body">
+                            <h2 id="matchName"></h2>
+                            <img id="matchImg" src="" alt="Image Not Found" style="max-width: 350px;">
+                        </div>
                     </div>
-
-                    <div class="modal-body">
-                        <h2 id="matchName"></h2>
-                        <img id="matchImg" src="" alt="Image Not Found" style="max-width: 350px;">
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-
                 </div>
 
             </div>
@@ -146,52 +202,95 @@
 </body>
 
 </html>
+<!-- Link in jQuery -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- Latest compiled and minified JavaScript (USED FOR THE MODAL) -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
-<script type="text/javascript">
-
-    $(".submit").on("click", function (event) {
+<script>
+    var allFieldsCompleted;
+    // $(document).ready(function () { //fix for javascript 
+    // Event Listener for Submission
+    $("#submitButton").on("click", function () {
+        // Check if all the user fields are completed
         event.preventDefault();
+        checkForm(function () {
+            if (allFieldsCompleted) {
+                getInputs();
+                console.log("Here we go")
+            }
+            else {
+                alert("Please complete all fields before submitting!");
+            }
+        }); // endcheckForm()
+    }); // end onclick listener
+    // }); // end
 
-        // Here we grab the form elements
+    // Function to valid user input
+    function checkForm(callback) {
+        // Check all questions for answers
+        var questionsCompleted;
+        $(".chosen-select").each(function () {
+            if ($(this).val() == "") {
+                questionsCompleted = false;
+            } //end each
+        })
+            // begin promise for each
+            .promise().done(function () {
+                // Check if any questions are incomplete
+                if (questionsCompleted == false) {
+                    allFieldsCompleted = false;
+                }
+                // Determine if Name is entered
+                else if ($("#customerName").val().trim() == "") {
+                    allFieldsCompleted = false;
+                }
+                // Determine if Link is entered
+                else if ($("#photoNumber").val().trim() == "") {
+                    allFieldsCompleted = false;
+                }
+                // Otherwise, the all fields are completed
+                else {
+                    allFieldsCompleted = true;
+                }
+                // Fire Off Callback (to counter async behavior of $.each)
+                callback();
+                console.log("and now checking form");
+            });
+    }
+    function getInputs() {
+        console.log("here we are now");
+        // Make new friend object
         var newFriend = {
-            customerName: $("#survey-name").val().trim(),
-            photoNumber: $("#survey-photo").val().trim(),
-            scores: [$(".answered").val().trim()]
+            customerName: $("#customerName").val().trim(),
+            photoNumber: $("#photoNumber").val().trim(),
+            scores: [$(".chosen-select").val().trim()]
         };
-        console.log(newFriend);
-
+        // review ?'s' to get scores
         var scoresArray = [];
-        $('.answered').each(function () {
-            scoresArray.push(parseInt($(this).val())); // Parse Input Value as integer
-        }).promise().done(function () {
-            newFriend.scores = scoresArray;
-            // This line is the magic. It"s very similar to the standard ajax function we used.
-            // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
-            // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
-            // depending on if a tables is available or not.
+        $(".chosen-select").each(function () {
+            scoresArray.push(parseInt($(this).val())); // Parse as integer
+        })
+            // begin promise
+            .promise().done(function () {
+                // Push the array of scores to the new friend object
+                newFriend.scores = scoresArray;
+                // This line is the magic. It"s very similar to the standard ajax function we used.
+                // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
+                // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
+                // depending on if a friend is available or not.
+                // POST the newFriend to the friends.js file and get back the best match
+                // var currentURL = window.location.origin; // googled fix testing if works
+                $.post("/api/friends", newFriend, function (data) {
+                    // Add Best Match to div
+                    $("#matchName").text(data.customerName);
+                    $("#matchImg").attr("src", data.photoNumber);
 
-            $.post("/api/survey", newFriend,
-                function (req, res) {
-                    // If a table is available... tell user they are booked.
-                    console.log("this is the data inside the survey apge post function" + res.body.customerName);
-                    console.log("they have a match and its" + bestFriendMatch);
-                    if (res) {
-                        alert("Yay! You've been matched!");
-                    }
+                    console.log(data);
+                }); // end POST
 
-                    // If form is incomplete or no match.
-                    else {
-                        alert("Sorry no perfect matches today, check back later!");
-                    }
-
-                    // display match in modal
-                    $("#matchName").text(newFriend.customerName);
-                    $("#matchImg").attr("src", newFriend.photoNumber);
-                    $("#resultsModal").modal("show");
-
-                });
-        });
-
-    });
-
+            });
+    }
 </script>
