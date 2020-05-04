@@ -32,7 +32,7 @@ A survey based matching app to find a friend with similar interests.
 <p> In addition when the user clicks survey and populates with their information, upon clicking submit the user will be matched based on the entered preferences.</p>
 
 ![first screenshot](https://github.com/Raej1428/FriendFinder/blob/master/ffsurvey.png)
-![first screenshot](hhttps://github.com/Raej1428/FriendFinder/blob/master/ffFilledOutSurvey.png)
+![first screenshot](https://github.com/Raej1428/FriendFinder/blob/master/ffFilledOutSurvey.png)
 
 
 
